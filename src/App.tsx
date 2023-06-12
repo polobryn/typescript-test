@@ -1,21 +1,26 @@
 import React from 'react';
 import logo from './logo.png';
+import { useState, useEffect } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <h1 className="text-3xl font-bold underline">
-          Wolfgang Digital Lupin App
-        </h1>
-      </header>
-    </div>
-  );
+
+  const responseMessage = (response: any) => {
+    console.log(response);
+  };
+  const errorMessage = (error: any) => {
+    console.log(error);
+  };
+
+    return (
+      <div className="App">
+        <h2>React Google Login</h2>
+        <br />
+        <br />
+        <GoogleLogin onSuccess={responseMessage} />  
+      </div>
+    );
 }
 
 export default App;
